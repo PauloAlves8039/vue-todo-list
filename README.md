@@ -11,5 +11,8 @@ Repositório de uma aplicação web para simular um Todo list, projeto consiste 
 - [CSS3](https://www.w3schools.com/css/)
 - [Vue CLI v5.0.8](https://cli.vuejs.org/) 
 
+## :floppy_disk: Instalação
+Baixar repositório ```https://github.com/PauloAlves8039/vue-todo-list.git```
+
 ## Author
 :boy: [Paulo Alves](https://github.com/PauloAlves8039)
