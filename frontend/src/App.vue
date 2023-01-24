@@ -31,8 +31,8 @@
                 </div>
             </div>
         </div>
-        <div class="col py-3">
-          <h3>Tarefas</h3>
+        <div class="container-title col py-3">
+          <h3 class="todo-title">Tarefas</h3>
             <TodoList />
         </div>
     </div>
@@ -57,5 +57,15 @@ export default {
 
 .nav-link:hover {
   color: #AB82FF;
+}
+
+.container-title {
+  height: 25%;
+  text-align: center;
+  background: linear-gradient(#4F4F4F 50%, #9C9C9C);
+}
+
+.todo-title {
+  color: #FFF;
 }
 </style>
