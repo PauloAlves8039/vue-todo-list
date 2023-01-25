@@ -29,7 +29,7 @@ export default {
       const postTask = await axios.post(baseURL, { name: this.todoName});
       this.todos = [...this.todos, postTask.data];
     },
-    async compelteTask(id) {
+    async completeTask(id) {
       await axios.put(`${baseURL}/${id}`, { done: true });
       this.todos = this.todos.map((todo) => {
         if (todo.id === id) {
@@ -37,6 +37,10 @@ export default {
         }
         return todo;
       });
+    },
+    removeTask(id) {
+      axios.delete(`${baseURL}/${id}`);
+      this.todos = this.todos.filter((todo) => todo.id !== id);
     }
 
   }
