@@ -13,14 +13,21 @@ export default {
   data () {
     return {
       todos: [],
+      todoName: "",
     }
   },
   async created() {
     try {
-      const response = await axios.get(baseURL);
-      this.todos = response.data;
+      const getTasks = await axios.get(baseURL);
+      this.todos = getTasks.data;
     } catch (error) {
       console.error(error);
+    }
+  },
+  methods: {
+    async addTask() {
+      const postTask = await axios.post(baseURL, { name: this.todoName});
+      this.todos = [...this.todos, postTask.data];
     }
   }
 }
