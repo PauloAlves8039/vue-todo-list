@@ -28,7 +28,17 @@ export default {
     async addTask() {
       const postTask = await axios.post(baseURL, { name: this.todoName});
       this.todos = [...this.todos, postTask.data];
+    },
+    async compelteTask(id) {
+      await axios.put(`${baseURL}/${id}`, { done: true });
+      this.todos = this.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.done = true;
+        }
+        return todo;
+      });
     }
+
   }
 }
 </script>
