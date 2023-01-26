@@ -1,7 +1,7 @@
 <template>
   <div class="container pt-5">
     <div class="todos form-control">
-      <h1>Adicionar Tarefa</h1>
+      <h2 class="title-task">Adicionar Tarefa</h2>
       <div class="content">
         <form class="row g-3">
           <div class="col-auto">
@@ -18,7 +18,31 @@
         </form>
       </div>
     </div>
-    <div >
+    <div class="container-task py-3">
+      <h2 class="title-task">Tarefas</h2>
+      <table class="table table-hover table-bordered">
+        <thead class="table-dark text-center">
+          <tr>
+            <th>Nome</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody v-for="(todo, index) in todos" :key="index" class="">
+          <tr>
+            <td>{{ todo.name }}</td>
+            <td>
+              <i
+                @click="completeTask(todo.id)"
+                class="bi bi-check-square-fill px-md-1 text-primary"
+              ></i>
+              <i
+                @click="removeTask(todo.id)"
+                class="bi bi-trash3-fill px-md-1 text-danger"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -73,7 +97,7 @@ export default {
   border-radius: 8px;
 }
 
-h1 {
+.title-task {
   text-align: center;
 }
 
@@ -94,10 +118,18 @@ li {
   width: 400px;
 }
 
+.bi-file-plus-fill {
+  font-size: 35px;
+}
+
+.bi-check-square-fill,
+.bi-trash3-fill {
+  font-size: 25px;
+}
+
 .bi-file-plus-fill,
 .bi-check-square-fill,
 .bi-trash3-fill {
-  font-size: 35px;
   cursor: pointer;
 }
 </style>
