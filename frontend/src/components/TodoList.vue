@@ -1,6 +1,25 @@
 <template>
-  <div>
-    
+  <div class="container pt-5">
+    <div class="todos form-control">
+      <h1>Adicionar Tarefa</h1>
+      <div class="content">
+        <form class="row g-3">
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control input-task"
+              v-model="todoName"
+              placeholder="Adicionar nova tarefa"
+            />
+          </div>
+          <div class="col g-2">
+            <i class="bi bi-file-plus-fill text-success" @click="addTask()"></i>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div >
+    </div>
   </div>
 </template>
 
@@ -48,5 +67,37 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
 
+h1 {
+  text-align: center;
+}
+
+.content {
+  margin-left: 25%;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+li {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.input-task {
+  width: 400px;
+}
+
+.bi-file-plus-fill,
+.bi-check-square-fill,
+.bi-trash3-fill {
+  font-size: 35px;
+  cursor: pointer;
+}
 </style>
