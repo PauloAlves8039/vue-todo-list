@@ -71,6 +71,7 @@ export default {
     async addTask() {
       const postTask = await axios.post(baseURL, { name: this.todoName});
       this.todos = [...this.todos, postTask.data];
+      this.clearFild();
     },
     async completeTask(id) {
       await axios.put(`${baseURL}/${id}`, { done: true });
@@ -84,8 +85,10 @@ export default {
     removeTask(id) {
       axios.delete(`${baseURL}/${id}`);
       this.todos = this.todos.filter((todo) => todo.id !== id);
-    }
-
+    },
+    clearFild() {
+      this.todoName = "";
+    },
   }
 }
 </script>
