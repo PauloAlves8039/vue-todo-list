@@ -27,17 +27,17 @@
             <th>Ação</th>
           </tr>
         </thead>
-        <tbody v-for="(todo, index) in todos" :key="index" class="">
+        <tbody v-for="(todo, index) in todos" :key="index" :class="{ done: todo.done }">
           <tr>
             <td>{{ todo.name }}</td>
-            <td>
+            <td class="actions">
               <i
                 @click="completeTask(todo.id)"
                 class="bi bi-check-square-fill px-md-1 text-primary"
               ></i>
               <i
                 @click="removeTask(todo.id)"
-                class="bi bi-trash3-fill px-md-1 text-danger"
+                class="bi bi-trash3-fill px-md-1 m-1 text-danger"
               ></i>
             </td>
           </tr>
@@ -131,5 +131,10 @@ li {
 .bi-check-square-fill,
 .bi-trash3-fill {
   cursor: pointer;
+}
+
+.actions {
+  width: 150px;
+  text-align: center;
 }
 </style>
