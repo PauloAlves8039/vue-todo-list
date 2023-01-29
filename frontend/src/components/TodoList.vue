@@ -1,7 +1,11 @@
 <template>
-  <div class="container pt-5">
-    <div class="todos form-control">
-      <h2 class="title-task">Adicionar Tarefa</h2>
+  <div class="container pt-1">
+    <div>
+      <img src="https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg" alt="tarefas" class="image-title rounded mx-auto d-block">
+    </div>
+    <hr>
+    <h2 class="title-task">Adicionar Tarefa</h2>
+    <div class="form-task">
       <div class="content">
         <form class="row g-3">
           <div class="col-auto">
@@ -9,15 +13,16 @@
               type="text"
               class="form-control input-task"
               v-model="todoName"
-              placeholder="Adicionar nova tarefa"
             />
           </div>
           <div class="col g-2">
-            <i class="bi bi-file-plus-fill text-success" @click="addTask()"></i>
+            <i class="bi bi-plus-square-fill text-primary" @click="addTask()"></i>
+            <i class="bi bi-x-square-fill text-secondary m-2" @click="clearFild()"></i>
           </div>
         </form>
       </div>
     </div>
+    <hr>
     <div class="container-task py-3">
       <h2 class="title-task">Tarefas</h2>
       <table class="table table-hover table-bordered">
@@ -33,7 +38,7 @@
             <td class="actions">
               <i
                 @click="completeTask(todo.id)"
-                class="bi bi-check-square-fill px-md-1 text-primary"
+                class="bi bi-check-square-fill px-md-1 text-success"
               ></i>
               <i
                 @click="removeTask(todo.id)"
@@ -100,12 +105,22 @@ export default {
   border-radius: 8px;
 }
 
+.form-task {
+  margin-top: 5%;
+}
+
 .title-task {
   text-align: center;
 }
 
 .content {
   margin-left: 25%;
+}
+
+.image-title {
+  width: 100px;  
+  height: 100px;
+  margin-bottom: 5px;
 }
 
 .done {
@@ -118,10 +133,10 @@ li {
 }
 
 .input-task {
-  width: 400px;
+  width: 300px;
 }
 
-.bi-file-plus-fill {
+.bi-plus-square-fill, .bi-x-square-fill {
   font-size: 35px;
 }
 
@@ -130,7 +145,7 @@ li {
   font-size: 25px;
 }
 
-.bi-file-plus-fill,
+.bi-plus-square-fill,
 .bi-check-square-fill,
 .bi-trash3-fill {
   cursor: pointer;
