@@ -25,6 +25,7 @@
     <hr>
     <div class="container-task py-3">
       <h2 class="title-task">Tarefas</h2>
+      <InfoCard :countTodo="todos.length" />
       <table class="table table-hover table-bordered">
         <thead class="table-dark text-center">
           <tr>
@@ -53,11 +54,16 @@
 </template>
 
 <script>
+import InfoCard from "./InfoCard.vue";
+
 import axios from "axios";
 const baseURL = "http://localhost:3001/todos";
 
 export default {
   name: 'TodoList',
+  components: {
+    InfoCard
+  },
   data () {
     return {
       todos: [],
